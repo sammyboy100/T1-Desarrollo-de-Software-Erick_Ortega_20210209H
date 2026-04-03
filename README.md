@@ -1,32 +1,47 @@
-# T1 - Desarrollo de Software (Erick Daniel Ortega Moran)
+# T1 - Desarrollo de Software
 
-Este repositorio almacena las soluciones en Python para la primera tarea de laboratorio.
+**Autor:** Erick Daniel Ortega Moran
 
-## Archivos del Proyecto
-
-* **`p1DS.py`** : Código del primer ejercicio (Enrutador web).
-* **`p2DS.py`** : Código del segundo ejercicio (Fidelidad de clientes).
-* **`input.txt`** : Casos de prueba para el primer ejercicio.
-* **`input2.txt`** : Casos de prueba para el segundo ejercicio.
+Este repositorio contiene las soluciones en Python para la primera práctica de laboratorio. El objetivo principal es aplicar estructuras de datos (como listas, diccionarios y formateo de cadenas) para procesar información y resolver problemas de lógica computacional.
 
 ---
 
-## 1) Simulador de enrutamiento — `p1DS.py`
+## 📁 Estructura del Proyecto
 
-**¿Qué hace?**
-Es un programa que imita la navegación en una página web. Lee direcciones (algunas con variables como `/user/:id`) y revisa a qué contenido corresponden. Si el usuario intenta entrar a una dirección que no existe, el sistema arroja un error de no encontrado (`404 Not Found`).
+* **`p1DS.py`** : Algoritmo de enrutamiento.
+* **`input.txt`** : Datos de prueba para el Problema 1.
+* **`p2DS.py`** : Algoritmo de fidelidad de clientes.
+* **`input2.txt`** : Datos de prueba para el Problema 2.
 
-**¿Cómo ejecutarlo?**
-Asegúrate de tener el archivo `input.txt` en la misma carpeta y corre este comando en tu consola:
+---
+
+## 🚀 Problema 1: Simulador de Enrutamiento (SPA)
+
+### Descripción
+El programa simula el motor de enrutamiento interno de una aplicación web (Single Page Application). Se encarga de procesar un listado de rutas base (algunas con variables dinámicas) y evalúa las peticiones del usuario para determinar qué contenido exacto se debe renderizar.
+
+### Lógica del Código (`p1DS.py`)
+La solución procesa las cadenas de texto paso a paso:
+1. **Lectura y segmentación:** Extrae las rutas y peticiones, dividiendo cada URL por el carácter `/` para analizarla por bloques.
+2. **Comparación simultánea:** Compara los fragmentos de la petición del usuario con los fragmentos de las rutas almacenadas.
+3. **Captura de parámetros dinámicos:** Si identifica que un bloque de la ruta base empieza con `:`, el algoritmo lo reconoce como una variable, guarda el valor que el usuario ingresó y permite que la validación continúe.
+4. **Respuesta:** Si la estructura coincide, imprime el contenido limpio y le adjunta las variables capturadas. Si la ruta no existe, devuelve un error controlado (`404 Not Found`).
+
+**Comando de ejecución:**
 > `python p1DS.py`
 
 ---
 
-## 2) Cliente más fiel por socio — `p2DS.py`
+## 🏦 Problema 2: Cliente Más Fiel
 
-**¿Qué hace?**
-Analiza un registro de ventas de distintos terminales para descubrir qué persona compró más veces en cada negocio. En caso de que dos personas tengan la misma cantidad de compras, elige al que tenga el número de identificador más bajo. Si un negocio no vendió nada, muestra un `-1`.
+### Descripción
+Este script procesa un registro masivo de transacciones bancarias para identificar qué cliente tiene la mayor cantidad de compras en las máquinas POS (terminales) de cada uno de los socios comerciales.
 
-**¿Cómo ejecutarlo?**
-Asegúrate de tener el archivo `input2.txt` en la misma carpeta y corre este comando en tu consola:
+### Lógica del Código (`p2DS.py`)
+La solución está optimizada mediante el uso de tablas hash (diccionarios en Python) para realizar búsquedas y conteos en tiempo rápido:
+1. **Mapeo de Terminales:** Se construye un primer diccionario que relaciona el ID de cada terminal con el ID de su socio dueño (`Terminal -> Socio`).
+2. **Conteo de Frecuencias:** Al leer las compras, el programa busca a qué socio le pertenece la máquina usada e incrementa el historial de compras de ese cliente en un diccionario anidado (`Socio -> Cliente -> Cantidad`).
+3. **Desempate y Selección:** Finalmente, el algoritmo itera sobre los registros de cada socio para encontrar el valor máximo de compras. Si ocurre un empate entre dos clientes, se aplica la condición matemática de seleccionar estrictamente al de menor ID. Si un socio no registró movimientos, el sistema imprime `-1`.
+
+**Comando de ejecución:**
 > `python p2DS.py`
