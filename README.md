@@ -1,23 +1,23 @@
 # T1 - Desarrollo de Software (Erick Daniel Ortega Moran)
 
-[cite_start]Este repositorio contiene la solución a los dos problemas del Laboratorio 1, implementados en **Python**[cite: 22, 23].
+Este repositorio almacena las soluciones en Python para la primera tarea de laboratorio.
 
 ## Archivos del Proyecto
 
-* **`p1DS.py`** : Solución del Problema 1 (Simulador de enrutamiento).
-* **`p2DS.py`** : Solución del Problema 2 (Cliente más fiel por socio).
-* **`input.txt`** : Archivo de datos de prueba para el Problema 1.
-* **`input2.txt`** : Archivo de datos de prueba para el Problema 2.
+* **`p1DS.py`** : Código del primer ejercicio (Enrutador web).
+* **`p2DS.py`** : Código del segundo ejercicio (Fidelidad de clientes).
+* **`input.txt`** : Casos de prueba para el primer ejercicio.
+* **`input2.txt`** : Casos de prueba para el segundo ejercicio.
 
 ---
 
 ## 1) Simulador de enrutamiento — `p1DS.py`
 
 **¿Qué hace?**
-[cite_start]Simula el comportamiento de enrutamiento en una aplicación de una sola página (SPA)[cite: 1]. [cite_start]Recibe un conjunto de rutas (algunas con parámetros como `/user/:id`) y una lista de transiciones[cite: 5, 8]. [cite_start]El programa determina la ruta correspondiente y devuelve el contenido asociado, o muestra `404 Not Found` si la ruta no existe[cite: 6, 7].
+Es un programa que imita la navegación en una página web. Lee direcciones (algunas con variables como `/user/:id`) y revisa a qué contenido corresponden. Si el usuario intenta entrar a una dirección que no existe, el sistema arroja un error de no encontrado (`404 Not Found`).
 
 **¿Cómo ejecutarlo?**
-Asegúrate de que `input.txt` esté en la misma carpeta que el código y ejecuta en la terminal:
+Asegúrate de tener el archivo `input.txt` en la misma carpeta y corre este comando en tu consola:
 > `python p1DS.py`
 
 ---
@@ -25,8 +25,8 @@ Asegúrate de que `input.txt` esté en la misma carpeta que el código y ejecuta
 ## 2) Cliente más fiel por socio — `p2DS.py`
 
 **¿Qué hace?**
-[cite_start]Ayuda a determinar al cliente más fiel para cada socio del Banco de la Nación[cite: 24, 26]. [cite_start]Procesa una lista de terminales y transacciones para identificar qué cliente realizó la mayor cantidad de compras en los terminales de un socio específico[cite: 26]. [cite_start]Si hay un empate, prioriza al cliente con el ID más pequeño[cite: 28]. [cite_start]Si un socio no tiene ventas, devuelve `-1`[cite: 28].
+Analiza un registro de ventas de distintos terminales para descubrir qué persona compró más veces en cada negocio. En caso de que dos personas tengan la misma cantidad de compras, elige al que tenga el número de identificador más bajo. Si un negocio no vendió nada, muestra un `-1`.
 
 **¿Cómo ejecutarlo?**
-Asegúrate de que `input2.txt` esté en la misma carpeta que el código y ejecuta en la terminal:
+Asegúrate de tener el archivo `input2.txt` en la misma carpeta y corre este comando en tu consola:
 > `python p2DS.py`
